@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-tsc",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "TypeScript plugged into DocPad",
   "keywords": [ "docpad", "docpad-plugin", "typescript", "tsc" ],
   "author": "Bartosz Pampuch <bartosz.pampuch@gmail.com>",
