@@ -1,0 +1,27 @@
+{
+  "name": "docpad-plugin-tsc",
+  "version": "2.0.0",
+  "description": "TypeScript plugged into DocPad",
+  "keywords": [ "docpad", "docpad-plugin", "typescript", "tsc" ],
+  "author": "Bartosz Pampuch <bartosz.pampuch@gmail.com>",
+  "maintainers": "Bartosz Pampuch <bartosz.pampuch@gmail.com> (http://github.com/bpampuch)",
+  "contributors": "Bartosz Pampuch <bartosz.pampuch@gmail.com> (http://github.com/bpampuch)",
+  "main": "./out/docpad-plugin-tsc.plugin.js",
+  "bugs": {
+    "url": "https://github.com/bpampuch/docpad-plugin-tsc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpampuch/docpad-plugin-tsc.git"
+  },
+  "engines": {
+    "node": ">=0.6.0",
+    "docpad": "6.x"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.2"
+  },
+  "scripts": {
+    "test": "node ./out/docpad-plugin-tsc.test.js"
+  }
+}
