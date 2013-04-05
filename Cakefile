@@ -13,7 +13,7 @@ CAKE    = "#{BIN}/cake#{EXT}"
 COFFEE  = "#{BIN}/coffee#{EXT}"
 SRC     = "#{APP}/src"
 TEST    = "#{APP}/test"
-TSCDIR	= "#{OUT}/node_modules/typescript/bin"
+TSCDIR	= "#{APP}/node_modules/typescript/bin"
 TSCSRC	= "#{TSCDIR}/tsc.js"
 TSCOUT	= "#{OUT}/tsc.js"
 TSCLIBSRC	= "#{TSCDIR}/lib.d.ts"
@@ -48,9 +48,9 @@ compile = (opts,next) ->
 
 typescript = (opts, next) ->
 	(next = opts; opts = {}) unless next?
-	spawn(NPM, ['install', 'typescript'], {stdio:'inherit', cwd:OUT}).on 'exit', safe next, ->
-		fs.mkdirSync(OUT) if (!fs.existsSync(OUT))
-		fs.mkdirSync(OUTMOD) if (!fs.existsSync(OUTMOD))
+	spawn(NPM, ['install', 'typescript'], {stdio:'inherit', cwd:APP}).on 'exit', safe next, ->
+		#fs.mkdirSync(OUT) if (!fs.existsSync(OUT))
+		#fs.mkdirSync(OUTMOD) if (!fs.existsSync(OUTMOD))
 		tscContent = fs.readFileSync(TSCSRC, 'utf8')
 		tscContent = tscContent.replace(/var batch = new BatchCompiler[\s\S]*/, tscReplacement);
 		fs.writeFileSync(TSCOUT, tscContent)
@@ -78,23 +78,23 @@ setup = (opts,next) ->
 # -----------------
 # Commands
 
-task 'compile', 'compile our files', ->
-	compile finish
+# task 'compile', 'compile our files', ->
+# 	compile finish
 
-task 'install', 'install dependencies', ->
-	install finish
+# task 'install', 'install dependencies', ->
+# 	install finish
 
-task 'typescript', 'install and patch typescript', ->
-	typescript finish
+# task 'typescript', 'install and patch typescript', ->
+# 	typescript finish
 
-task 'setup', 'setup for development', ->
+task 'build', 'build tsc plugin', ->
 	setup finish
 
-task 'test', 'run our tests', ->
-	test finish
+# task 'test', 'run our tests', ->
+# 	test finish
 
-task 'test-debug', 'run our tests in debug mode', ->
-	test {debug:true}, finish
+# task 'test-debug', 'run our tests in debug mode', ->
+# 	test {debug:true}, finish
 
-task 'test-prepare', 'prepare out tests', ->
-	setup finish
+# task 'test-prepare', 'prepare out tests', ->
+# 	setup finish
