@@ -2,7 +2,7 @@ class TscCompiler
 	constructor: ->
 		@files = {}
 
-		@tsc = require('./node_modules/typescript/bin/ntsc');
+		@tsc = require('./tsc');
 		@tsc.IO.writeFile = ->
 		@tsc.IO.createFile = (name) =>
 			result = ''
